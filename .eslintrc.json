@@ -1,0 +1,51 @@
+{
+	"env": {
+		"browser": true,
+		"es2021": true
+	},
+	"extends": ["plugin:@wordpress/eslint-plugin/recommended", "plugin:import/recommended"],
+	"rules": {
+		"@wordpress/no-unsafe-wp-apis": "off",
+		"jsdoc/require-param": "off",
+		"jsdoc/require-property-description": "off",
+		"jsdoc/require-returns-description": "off",
+		"jsx-no-target-blank": "off",
+		"no-unused-vars": [
+			"error",
+			{
+				"argsIgnorePattern": "^_"
+			}
+		],
+		"import/order": [
+			"error",
+			{
+				"alphabetize": {
+					"order": "asc",
+					"caseInsensitive": true
+				},
+				"newlines-between": "always",
+				"groups": ["builtin", "external", "parent", "sibling", "index"],
+				"pathGroups": [
+					{
+						"pattern": "@wordpress/**",
+						"group": "external"
+					}
+				],
+				"pathGroupsExcludedImportTypes": ["builtin", "react", "react-dom"]
+			}
+		]
+	},
+	"overrides": [
+		{
+			"files": "**/*.ts?(x)",
+			"rules": {
+				"no-unused-vars": "off"
+			}
+		}
+	],
+	"settings": {
+		"jsdoc": {
+			"mode": "typescript"
+		}
+	}
+}
